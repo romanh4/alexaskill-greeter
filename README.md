@@ -1,2 +1,2 @@
-# alexaskill-greeter
+# Alexa Skill projects
 Alexa  Skill Projects
