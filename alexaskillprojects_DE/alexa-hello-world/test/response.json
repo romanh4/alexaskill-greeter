@@ -1,0 +1,12 @@
+{
+ //einige Parameter fehlen hier zur Übersichtlichkeit
+  "response": {
+    "outputSpeech": {
+      "type": "PlainText",
+      "text": " Willkommen im Hello World Skill." }, 
+    "reprompt": {
+      "outputSpeech": {
+        "type": "PlainText",
+        "text": "Wen soll ich grüßen?" }
+    },
+    "shouldEndSession": false  } }

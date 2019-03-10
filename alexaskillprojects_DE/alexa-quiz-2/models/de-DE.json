@@ -1,0 +1,77 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "weltmeisterschaft quiz",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StartOverIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AnswerIntent",
+          "samples": [
+            "{Year}",
+            "{Champion}",
+            "{Participants}",
+            "{Host}",
+            "Erzähle mir über die Weltmeisterschaft {Year}",
+            "Erzähle mir über {Champion}",
+            "Erzähle mir über {Host}",
+            "Was weißt du von der Weltmeisterschaft {Year}",
+            "Was weißt du von {Champion}",
+            "Was weißt du von {Host}"
+          ],
+          "slots": [
+            {
+              "name": "Host",
+              "type": "AMAZON.Country",
+              "samples": []
+            },
+            {
+              "name": "Champion",
+              "type": "AMAZON.Country",
+              "samples": []
+            },
+            {
+              "name": "Year",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER",
+              "samples": []
+            },
+            
+            {
+              "name": "Participants",
+              "type": "AMAZON.NUMBER",
+              "samples": []
+            }
+          ]
+        }, 
+        {
+          "name": "QuizIntent",
+          "samples": [
+          "Starte das quiz",
+          "Beginne das Quiz",
+          "Frage mich etwas",
+          "das Spiel",
+          "ein quiz"],
+          "slots": []
+        }
+      ]
+    }
+  }
+}
