@@ -75,24 +75,4 @@ exports.handler = skillBuilder
     .lambda();
 
 
-    // IN THE CASE OF A SIMPLE GREETING, WITHOUT THE NAME
-
-const LaunchRequestHandler = {
-  canHandle(handlerInput) {
-      const request = handlerInput.requestEnvelope.request;
-      return request.type === 'LaunchRequest';
-  },
-  async handle(handlerInput) {
-      // we get the translator 't' function from the request attributes
-      const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-
-      // we call it using requestAttributes.t and reference the string key we want as the argument.
-      const speechOutput = requestAttributes.t('GREETING');
-
-      // -> speechOutput will now contain a 'GREETING' at random, such as 'Hello'
-
-      return handlerInput.responseBuilder
-          .speak(speechOutput)
-          .getResponse();
-  },
 };

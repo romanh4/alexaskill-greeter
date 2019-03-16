@@ -3,10 +3,11 @@
   "response": {
     "outputSpeech": {
       "type": "PlainText",
-      "text": " Willkommen im Hello World Skill." }, 
+      "text": "Willkommen im Hello World Skill." }, 
     "reprompt": {
       "outputSpeech": {
         "type": "PlainText",
         "text": "Wen soll ich grüßen?" }
     },
-    "shouldEndSession": false  } }
+    "shouldEndSession": false  } 
+  }

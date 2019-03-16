@@ -1,0 +1,76 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "film quiz",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StartOverIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "ExplainIntent",
+          "samples": [
+            "{Year}",
+            "{Champion}",
+            "{Participants}",
+            "{Host}",
+            "Erzähle mir über die Weltmeisterschaft {Year}",
+            "Erzähle mir über {Champion}",
+            "Erzähle mir über {Host}",
+            "Was weißt du von der Weltmeisterschaft {Year}",
+            "Was weißt du von {Champion}",
+            "Was weißt du von {Host}"
+          ],
+          "slots": [
+            {
+              "name": "Year",
+              "type": "AMAZON.DATE",
+              "samples": []
+            },
+            {
+              "name": "Champion",
+              "type": "AMAZON.COUNTRY",
+              "samples": []
+            },
+            {
+              "name": "Host",
+              "type": "AMAZON.COUNTRY",
+              "samples": []
+            },
+            {
+              "name": "Participants",
+              "type": "AMAZON.NUMBER",
+              "samples": []
+            }
+          ]
+        }, 
+        {
+          "name": "QuizIntent",
+          "samples": [
+          "Starte das quiz",
+          "Beginne das Quiz",
+          "Frage mich etwas",
+          "das Spiel",
+          "ein quiz"],
+          "slots": []
+        }
+      ]
+    }
+  }
+}

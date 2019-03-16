@@ -1,0 +1,5 @@
+#LaunchRequest öffne Weltmeisterschaft quiz
+#AMAZON.HelpIntent
+#AMAZON.StopIntent
+AnswerIntent Year=1970
+QuizIntent

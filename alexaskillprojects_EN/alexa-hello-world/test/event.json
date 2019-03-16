@@ -1,0 +1,15 @@
+{  "session": {
+    "new": false,
+    "sessionId": "123"
+  },
+  "version": "1.0",
+  "request": {
+    "intent": {
+      "slots": {
+        "Name": {
+          "name": "Name",
+          "value": "Roman"        }      },
+      "name": "HelloIntent"
+    },
+    "type": "IntentRequest",
+    "requestId": "123"  } }

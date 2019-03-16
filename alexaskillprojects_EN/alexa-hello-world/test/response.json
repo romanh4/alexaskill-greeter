@@ -1,0 +1,12 @@
+{
+ //some parameters are missing for clarity
+  "response": {
+    "outputSpeech": {
+      "type": "PlainText",
+      "text": "Welcome to the Hello World Skill." }, 
+    "reprompt": {
+      "outputSpeech": {
+        "type": "PlainText",
+        "text": "Who do you want me to greet?" }
+    },
+    "shouldEndSession": false  } }

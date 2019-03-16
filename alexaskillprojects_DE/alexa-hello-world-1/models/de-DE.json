@@ -32,8 +32,8 @@
                         }
                     ],
                     "samples": [
-                        "say hello to {Name}",
-                        "greet our friend {Name}"
+                        "Sag Hallo zu {Name}",
+                        "Grüße an {Name}"
                     ]
                 }
             ],
