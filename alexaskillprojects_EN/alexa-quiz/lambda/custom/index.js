@@ -158,7 +158,7 @@ const QuizAnswerHandler = {
       speakOutput += question;
       repromptOutput = question;
       
-      iif (supportsDisplay(handlerInput)) {
+      if (supportsDisplay(handlerInput)) {
         const title = getQuestion(attributes.counter, property, item);
         //const primaryText = new Alexa.RichTextContentHelper().withPrimaryText(getQuestionWithoutOrdinal(property, item)).getTextContent();
         const backgroundImage = new Alexa.ImageHelper().addImageInstance(getBackgroundImage(attributes.quizItem.Abbreviation)).getImage();
@@ -257,34 +257,34 @@ const ErrorHandler = {
 //Konstanten
 
 const skillBuilder = Alexa.SkillBuilders.custom();
-const welcomeMessage = `Willkommen im Fusball Weltmeisterschaft Quiz Spiel! Du kannst mich über eine WM nach 1962 fragen oder das Quiz beginnen.  Was willst du tun?`;
-const helpMessage = `Ich weiß einiges über die Fussball Weltmeisterschaften. Du kannst mir eine genaue Frage stellen oder das Quiz spielen. Um das Quiz zu spielen, sage einfach Quiz.`;
-const startQuizMessage = `OK.  Ich werde dir jetzt 10 Fragen zur Fussball Weltmeisterschaft stellen. `;
-const exitSkillMessage = `Danke für Vorbeischauen!`;
-const errorMessage = `Tut mir leid, aber das kenne ich nicht. Kannst du das wiederholen?`;
-const repromptSpeech = `Was würdest du noch gerne wissen?`;
+const welcomeMessage = `Welcome to the Football World Cup Quiz Game! You can ask me about a World Cup after 1962 or start the quiz.  What do you want to do?`;
+const helpMessage = `I know a lot about the football world championships. You can ask me a specific question or play the quiz. To play the quiz, just say Quiz.`;
+const startQuizMessage = `OK.  I will now ask you 10 questions about the World Cup. `;
+const exitSkillMessage = `Thanks for stopping by!`;
+const errorMessage = `I am sorry, but I do not know that. Can you repeat that?`;
+const repromptSpeech = `What else would you like to know?`;
 
-const speechConsCorrect = ['bingo', 'hurra','jawohl'];
-const speechConsWrong = ['Schade', 'Mist', 'Kopf hoch'];
+const speechConsCorrect = ['bingo', 'cha ching','bravo'];
+const speechConsWrong = ['aw', 'blarg', 'jinx'];
 
 const backgroundImagePath = 'http://smart-home-system.org/wp-content/uploads/2019/03/fussball.jpg';
 
 const data = [
-  {Year: "1962",  Champion: "Brasilien",      Participants:16, Host: "Chile"},
+  {Year: "1962",  Champion: "brasil",      Participants:16, Host: "Chile"},
   {Year: "1966",  Champion: "England",        Participants:16, Host: "England"},
-  {Year: "1970",  Champion: "Brasilien",      Participants:16, Host: "Mexiko"},
-  {Year: "1974",  Champion: "Deutschland",    Participants:16, Host: "Deutschland"},
-  {Year: "1978",  Champion: "Argentinien",    Participants:16, Host: "Argentinien"},
+  {Year: "1970",  Champion: "brasil",      Participants:16, Host: "Mexiko"},
+  {Year: "1974",  Champion: "germany",    Participants:16, Host: "germany"},
+  {Year: "1978",  Champion: "argentina",    Participants:16, Host: "argentina"},
   {Year: "1982",  Champion: "Italien",        Participants:24, Host: "Spanien"},
-  {Year: "1986",  Champion: "Argentinien",    Participants:24, Host: "Mexiko"},
-  {Year: "1990",  Champion: "Deutschland",    Participants:24, Host: "Italien"},
-  {Year: "1994",  Champion: "Brasilien",      Participants:24, Host: "Vereinigte Staaten"},
-  {Year: "1998",  Champion: "Frankreich",     Participants:32, Host: "Frankreich"},
-  {Year: "2002",  Champion: "Brasilien",      Participants:32, Host: "Südkorea und Japan"},
-  {Year: "2006",  Champion: "Italien",        Participants:32, Host: "Deutschland"},
-  {Year: "2010",  Champion: "Brasilien",      Participants:32, Host: "Südafrika"},
-  {Year: "2014",  Champion: "Deutschland",    Participants:32, Host: "Brasilien"},
-  {Year: "2018",  Champion: "Frankreich",     Participants:32, Host: "Russland"}
+  {Year: "1986",  Champion: "argentina",    Participants:24, Host: "Mexiko"},
+  {Year: "1990",  Champion: "germany",    Participants:24, Host: "Italien"},
+  {Year: "1994",  Champion: "brasil",      Participants:24, Host: "united states"},
+  {Year: "1998",  Champion: "france",     Participants:32, Host: "france"},
+  {Year: "2002",  Champion: "brasil",      Participants:32, Host: "South korea and Japan"},
+  {Year: "2006",  Champion: "Italy",        Participants:32, Host: "germany"},
+  {Year: "2010",  Champion: "brasil",      Participants:32, Host: "South afrika"},
+  {Year: "2014",  Champion: "germany",    Participants:32, Host: "brasil"},
+  {Year: "2018",  Champion: "france",     Participants:32, Host: "russia"}
 ];
 
 const states = {
@@ -314,15 +314,15 @@ function getBackgroundImage() {
 
 
 function getBadAnswer(item) {
-  return `Leider weiß ich über ${item} nicht so viel. ${helpMessage}`;
+  return `Unfortunately, I do not know much about ${item}. ${helpMessage}`;
 }
 
 function getCurrentScore(score, counter) {
-  return `Du hast aktuell ${score} von insgesamt ${counter} Punkten. `;
+  return `You currently have ${score} of a total of ${counter} points. `;
 }
 
 function getFinalScore(score, counter) {
-  return `Du hast insagesamt ${score} von ${counter} Punkten. `;
+  return `You have a total of ${score} of ${counter} points. `;
 }
 
 
@@ -333,40 +333,40 @@ function formatCasing(key) {
 }
 
 function getQuestion(counter, property, item) {
-  const   questionPart1 = `Hier ist deine Frage Nummer ${counter}. `
+  const   questionPart1 = `Here is your question number ${counter}. `
   if (counter === 0) {
     questionPart1 = ` `
   }
    
   
   if (property ==="Year") {
-    return questionPart1 + ` Wann fand die WM in ${item.Host} statt?`;
+    return questionPart1 + ` When did the world championship take place in ${item.host}??`;
   } else if (property ==="Champion"){
-    return questionPart1 + ` Wer gewann die WM   ${item.Year}?`;
+    return questionPart1 + ` Who won the world championship ${item.Year}?`;
   } else if (property ==="Participants") {
-    return questionPart1 + ` Wieviele Teilnehmer hatte die WM ${item.Year}?`;
+    return questionPart1 + ` How many participants had the world championship ${item.Year}?`;
   } else if (property ==="Host") {
-    return questionPart1 + ` Wo fand die die WM ${item.Year} statt?`;
+    return questionPart1 + ` Where did the world championship ${item.Year} take place?`;
   }
 }
 
 function askQuestion(handlerInput) {
-  //Zufallsfrage erstellen
+  //Create Random Question
   const random = getRandom(0, data.length - 1);
   const item = data[random];
   const propertyArray = Object.getOwnPropertyNames(item);
   const property = propertyArray[getRandom(1, propertyArray.length - 1)];
 
-  //Session attribute holen
+  //get Session attributes
   const attributes = handlerInput.attributesManager.getSessionAttributes();
 
-  //Werte dem Attribut mitgeben
+  //Specifying values for the attribute
   attributes.selectedItemIndex = random;
   attributes.quizItem = item;
   attributes.quizProperty = property;
   attributes.counter += 1;
 
-  //Attribute speichern
+  //save Attributes
   handlerInput.attributesManager.setSessionAttributes(attributes);
 
   const question = getQuestion(attributes.counter, property, item);
@@ -390,16 +390,16 @@ function compareSlots(slots, value) {
 }
 
 function getSpeechCon(type) {
-  if (type) return `<say-as interpret-as='interjection'>${speechConsCorrect[getRandom(0, speechConsCorrect.length - 1)]}! Das war richtig. </say-as><break strength='strong'/>`;
-  return `<say-as interpret-as='interjection'>${speechConsWrong[getRandom(0, speechConsWrong.length - 1)]} . Das war leider nicht richtig. </say-as><break strength='strong'/>`;
+  if (type) return `<say-as interpret-as='interjection'>${speechConsCorrect[getRandom(0, speechConsCorrect.length - 1)]}! That was correct. </say-as><break strength='strong'/>`;
+  return `<say-as interpret-as='interjection'>${speechConsWrong[getRandom(0, speechConsWrong.length - 1)]} . That was not correct. </say-as><break strength='strong'/>`;
 }
 
 function getFinalScore(score, counter) {
-  return `Du hast ${score} Punkte aus ${counter} gemacht. `;
+  return `You have made ${score} points from ${counter}. `;
 }
 
 function getSpeechDescription(item) {
-  return `Die WM ${item.Year} fand statt in  ${item.Host}, hatte ${item.Participants} Teilnehmer und wurde von ${item.Champion} gewonnen. Über welche Weltmeisterschaft willst du noch etwas wissen?`;
+  return `The world championship ${item.Year} took place in ${item.Host}, had ${item.Participants} participants and was won by ${item.Champion}. About which World Championship do you want to know more ?`;
 }
   
 function getItem(slots) {
